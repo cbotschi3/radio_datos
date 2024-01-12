@@ -1,3 +1,4 @@
+package scr;
 public class ElMejorRadioDeLaClase{
 
     private boolean estaEncendido;
