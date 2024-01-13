@@ -1,5 +1,6 @@
 package scr;
-public class ElMejorRadioDeLaClase{
+
+public class ElMejorRadioDeLaClase {
 
     private boolean estaEncendido;
     private int volumen;
@@ -28,83 +29,79 @@ public class ElMejorRadioDeLaClase{
         botones = new float[12]; 
     }
 
-    public void encender(){
+    public void encender() {
         estaEncendido = true;
     }
 
-    public void apagar(){
+    public void apagar() {
         estaEncendido = false;
     }
 
-    public void setVolumen(int volumen){
+    public void setVolumen(int volumen) {
         this.volumen = volumen;
     }
 
-    public void cambiarBandar(int banda){
-        if(banda == AM && !modoAM){
+    public void cambiarBandar(int banda) {
+        if (banda == AM && !modoAM) {
             ultimaFrecuenciaFM = frecuenciaActual;
             frecuenciaActual = ultimaFrecuenciaAM;
             modoAM = true;
-        }
-        else if(banda == FM  && modoAM){
+        } else if (banda == FM && modoAM) {
             ultimaFrecuenciaAM = frecuenciaActual;
             frecuenciaActual = ultimaFrecuenciaFM;
             modoAM = false;
         }
     }
 
-    public void subirEmisora(){
-        if(modoAM){
+    public void subirEmisora() {
+        if (modoAM) {
             frecuenciaActual += PASOAM;
-            if(frecuenciaActual >= MAXAM){
+            if (frecuenciaActual >= MAXAM) {
                 frecuenciaActual = MAXAM;
             }
-        }
-        else{
+        } else {
             frecuenciaActual += PASOFM;
-            if(frecuenciaActual >= MAXFM){
+            if (frecuenciaActual >= MAXFM) {
                 frecuenciaActual = MAXFM;
             }
         }
     }
 
-    public void bajarEmisora(){
-        if(modoAM){
+    public void bajarEmisora() {
+        if (modoAM) {
             frecuenciaActual -= PASOAM;
-            if(frecuenciaActual <= MINAM){
+            if (frecuenciaActual <= MINAM) {
                 frecuenciaActual = MINAM;
             }
-        }
-        else{
+        } else {
             frecuenciaActual -= PASOFM;
-            if(frecuenciaActual <= MINFM){
+            if (frecuenciaActual <= MINFM) {
                 frecuenciaActual = MINFM;
             }
         }
     }
 
-    public void guardarEmisora(int boton, float frecuencia){
-        if(boton >= 0 && boton <= 11){
+    public void guardarEmisora(int boton, float frecuencia) {
+        if (boton >= 0 && boton <= 11) {
             botones[boton] = frecuencia;
         }
     }
 
-    public void seleccionarEmisora(int boton){
+    public void seleccionarEmisora(int boton) {
         int frecuenciaBoton = botones[boton];
-        if(frecuenciaBoton != 0.0f ){
-            if(frecuenciaBoton >= 530 && frecuenciaBoton <= 1610){
-                if(modoAM){
+        if (frecuenciaBoton != 0.0f) {
+            if (frecuenciaBoton >= 530 && frecuenciaBoton <= 1610) {
+                if (modoAM) {
                     frecuenciaActual = frecuenciaBoton;
-                }else{
+                } else {
                     ultimaFrecuenciaFM = frecuenciaActual;
                     frecuenciaActual = frecuenciaBoton;
                     modoAM = true;
                 }
-            }
-            else if(frecuenciaBoton >= 87.9 && frecuenciaBoton <= 107.9){
-                if(!modoAM){
+            } else if (frecuenciaBoton >= 87.9 && frecuenciaBoton <= 107.9) {
+                if (!modoAM) {
                     frecuenciaActual = frecuenciaBoton;
-                }else{
+                } else {
                     ultimaFrecuenciaAM = frecuenciaActual;
                     frecuenciaActual = frecuenciaBoton;
                     modoAM = false;
