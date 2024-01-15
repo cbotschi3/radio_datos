@@ -29,18 +29,30 @@ public class ElMejorRadioDeLaClase {
         botones = new float[12]; 
     }
 
+    /**
+     * 
+     */
     public void encender() {
         estaEncendido = true;
     }
 
+    /**
+     * 
+     */
     public void apagar() {
         estaEncendido = false;
     }
 
+    /**
+     * @param volumen
+     */
     public void setVolumen(int volumen) {
         this.volumen = volumen;
     }
 
+    /**
+     * @param banda
+     */
     public void cambiarBandar(int banda) {
         if (banda == AM && !modoAM) {
             ultimaFrecuenciaFM = frecuenciaActual;
@@ -53,6 +65,9 @@ public class ElMejorRadioDeLaClase {
         }
     }
 
+    /**
+     * 
+     */
     public void subirEmisora() {
         if (modoAM) {
             frecuenciaActual += PASOAM;
@@ -67,6 +82,9 @@ public class ElMejorRadioDeLaClase {
         }
     }
 
+    /**
+     * 
+     */
     public void bajarEmisora() {
         if (modoAM) {
             frecuenciaActual -= PASOAM;
@@ -81,12 +99,19 @@ public class ElMejorRadioDeLaClase {
         }
     }
 
+    /**
+     * @param boton
+     * @param frecuencia
+     */
     public void guardarEmisora(int boton, float frecuencia) {
         if (boton >= 0 && boton <= 11) {
             botones[boton] = frecuencia;
         }
     }
 
+    /**
+     * @param boton
+     */
     public void seleccionarEmisora(int boton) {
         int frecuenciaBoton = botones[boton];
         if (frecuenciaBoton != 0.0f) {
