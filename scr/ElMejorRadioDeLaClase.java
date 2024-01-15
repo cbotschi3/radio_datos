@@ -1,6 +1,6 @@
 package scr;
 
-public class ElMejorRadioDeLaClase {
+public class ElMejorRadioDeLaClase implements Radio {
 
     private boolean estaEncendido;
     private int volumen;
@@ -20,13 +20,33 @@ public class ElMejorRadioDeLaClase {
     public final static int AM = 0;
     public final static int FM = 1;
 
-    public ElMejorRadio(){  
+    public ElMejorRadioDeLaClase() {
         estaEncendido = false;
         volumen = 0;
         modoAM = true;
         frecuenciaActual = MINAM;
-        ultimaFrecuencia = MAXAM;
-        botones = new float[12]; 
+        ultimaFrecuenciaAM = MAXAM;
+        botones = new float[12];
+    }
+
+    public float getEmisora() {
+        return frecuenciaActual;
+    }
+
+    public int getVolumen() {
+        return volumen;
+    }
+
+    public boolean getEncendido() {
+        return estaEncendido;
+    }
+
+    public int getBanda() {
+        if (modoAM) {
+            return AM;
+        } else {
+            return FM;
+        }
     }
 
     /**
@@ -113,7 +133,7 @@ public class ElMejorRadioDeLaClase {
      * @param boton
      */
     public void seleccionarEmisora(int boton) {
-        int frecuenciaBoton = botones[boton];
+        float frecuenciaBoton = botones[boton];
         if (frecuenciaBoton != 0.0f) {
             if (frecuenciaBoton >= 530 && frecuenciaBoton <= 1610) {
                 if (modoAM) {
