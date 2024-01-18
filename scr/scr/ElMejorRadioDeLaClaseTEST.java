@@ -28,6 +28,6 @@ public class ElMejorRadioDeLaClaseTest {
 
         radio.guardarEmisora(0, 95.5f);
         radio.seleccionarEmisora(0);
-        assertEquals(95.5f, radio.getEmisora(), 0.01);
-    }
+        assertEquals(95.5f, radio.getEmisora(), 0.01);
+    }
 }
