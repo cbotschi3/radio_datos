@@ -10,7 +10,6 @@ public class Menu {
         Scanner input = new Scanner(System.in);
         Radio rad = new ElMejorRadioDeLaClase();
 
-
         System.out.println("El Mejor Radio");
         System.out.println("1. Encender");
         System.out.println("2. Cambiar Banda");
@@ -22,20 +21,20 @@ public class Menu {
         System.out.println("8. Estado Actual Emisora");
         System.out.println("9. Apagar");
         int teclado = input.nextInt();
-        
-        if(!rad.getEncendido()){
+
+        if (!rad.getEncendido()) {
             switch (teclado) {
                 case 1:
                     System.out.println("Radio Encendida");
                     rad.encender();
                     break;
-                    default:
+                default:
                     System.out.println("Encienda la radio primero.");
                     break;
             }
         } else {
             switch (teclado) {
-                
+
                 case 1:
                     System.out.println("Radio Encendida");
                     break;
@@ -72,7 +71,7 @@ public class Menu {
                     rad.seleccionarEmisora(emisoras);
                     break;
 
-                case 8: 
+                case 8:
                     System.out.println("Estado Actual Emisora");
                     break;
 
@@ -86,7 +85,7 @@ public class Menu {
 
             }
         }
-        if (rad.getEncendido()){
+        if (rad.getEncendido()) {
             System.out.println("Sistema de Radio Apagado...");
         }
     }
