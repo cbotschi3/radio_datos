@@ -1,7 +1,8 @@
 import org.junit.Test;
+
 import static org.junit.Assert.*;
 
-public class ElMejorRadioDeLaClaseTest {
+public class ElMejorRadioDeLaClaseTEST {
 
     @Test
     public void testRadio() {
@@ -28,6 +29,7 @@ public class ElMejorRadioDeLaClaseTest {
 
         radio.guardarEmisora(0, 95.5f);
         radio.seleccionarEmisora(0);
-        assertEquals(95.5f, radio.getEmisora(), 0.01);
+        assertEquals(95.5f, radio.getEmisora(), 0.01);
+
     }
 }

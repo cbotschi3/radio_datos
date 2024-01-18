@@ -1,4 +1,4 @@
-package scr;
+
 
 import java.util.Scanner;
 
