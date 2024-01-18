@@ -1,68 +1,33 @@
-import static org.junit.Assert.*;
-import org.junit.Before;
 import org.junit.Test;
+import static org.junit.Assert.*;
 
 public class ElMejorRadioDeLaClaseTest {
 
-    private ElMejorRadioDeLaClase radio;
-
-    @Before
-    public void setUp() {
-        radio = new ElMejorRadioDeLaClase();
-    }
-
     @Test
-    public void testEncender() {
-        assertFalse(radio.estaEncendido);
+    public void testRadio() {
+        ElMejorRadioDeLaClase radio = new ElMejorRadioDeLaClase();
+
+        assertFalse(radio.getEncendido());
+        assertEquals(0, radio.getVolumen());
+        assertEquals(ElMejorRadioDeLaClase.AM, radio.getBanda());
+        assertEquals(530f, radio.getEmisora(), 0.01);
+
         radio.encender();
-        assertTrue(radio.estaEncendido);
-    }
+        assertTrue(radio.getEncendido());
 
-    @Test
-    public void testApagar() {
-        radio.encender();
-        assertTrue(radio.estaEncendido);
-        radio.apagar();
-        assertFalse(radio.estaEncendido);
-    }
+        radio.setVolumen(10);
+        assertEquals(10, radio.getVolumen());
 
-    @Test
-    public void testSetVolumen() {
-        assertEquals(0, radio.volumen);
-        radio.setVolumen(5);
-        assertEquals(5, radio.volumen);
-    }
+        radio.cambiarBandar(ElMejorRadioDeLaClase.FM);
+        assertEquals(ElMejorRadioDeLaClase.FM, radio.getBanda());
 
-    @Test
-    public void testCambiarBanda() {
-        assertTrue(radio.modoAM);
-        radio.cambiarBanda(ElMejorRadioDeLaClase.FM);
-        assertFalse(radio.modoAM);
-    }
-
-    @Test
-    public void testSubirEmisora() {
-        assertEquals(ElMejorRadioDeLaClase.MINAM, radio.frecuenciaActual, 0.01);
         radio.subirEmisora();
-        assertEquals(ElMejorRadioDeLaClase.MINAM + ElMejorRadioDeLaClase.PASOAM, radio.frecuenciaActual, 0.01);
-    }
-
-    @Test
-    public void testBajarEmisora() {
-        assertEquals(ElMejorRadioDeLaClase.MINAM, radio.frecuenciaActual, 0.01);
+        assertEquals(88.1f, radio.getEmisora(), 0.01);
         radio.bajarEmisora();
-        assertEquals(ElMejorRadioDeLaClase.MINAM - ElMejorRadioDeLaClase.PASOAM, radio.frecuenciaActual, 0.01);
-    }
+        assertEquals(87.9f, radio.getEmisora(), 0.01);
 
-    @Test
-    public void testGuardarYSeleccionarEmisora() {
-        radio.guardarEmisora(0, 100.5f);
-        radio.guardarEmisora(1, 95.7f);
-
+        radio.guardarEmisora(0, 95.5f);
         radio.seleccionarEmisora(0);
-        assertEquals(100.5f, radio.frecuenciaActual, 0.01);
-
-        radio.seleccionarEmisora(1);
-        assertEquals(95.7f, radio.frecuenciaActual, 0.01);
+        assertEquals(95.5f, radio.getEmisora(), 0.01);
     }
 }

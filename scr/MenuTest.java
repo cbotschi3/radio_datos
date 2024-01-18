@@ -1,44 +1,41 @@
-import static org.junit.Assert.assertEquals;
-import org.junit.After;
-import org.junit.Before;
 import org.junit.Test;
-
-import java.io.ByteArrayInputStream;
-import java.io.ByteArrayOutputStream;
-import java.io.InputStream;
-import java.io.PrintStream;
+import static org.junit.Assert.*;
 
 public class MenuTest {
 
-    private final InputStream systemIn = System.in;
-    private final PrintStream systemOut = System.out;
-
-    private ByteArrayInputStream testIn;
-    private ByteArrayOutputStream testOut;
-
-    @Before
-    public void setUpOutput() {
-        testOut = new ByteArrayOutputStream();
-        System.setOut(new PrintStream(testOut));
-    }
-
-    @After
-    public void restoreSystemInputOutput() {
-        System.setIn(systemIn);
-        System.setOut(systemOut);
-    }
-
-    private void provideInput(String data) {
-        testIn = new ByteArrayInputStream(data.getBytes());
-        System.setIn(testIn);
-    }
-
     @Test
-    public void testMenuOptions() {
-        provideInput("1\n2\n0\n");
+    public void testMenu() {
+        ElMejorRadioDeLaClase radio = new ElMejorRadioDeLaClase();
+        Menu menu = new Menu();
 
-        Menu.main(null);
+        assertFalse(radio.getEncendido());
+        menu.main(null);
+        assertFalse(radio.getEncendido());
 
-        assertEquals("El Mejor Radio\n1. Encender\n2. Cambiar Banda\n3. Volumen\n4. Subir Emisora\n5. Bajar Emisora\n6. Guardar Emisora\n7. Apagar\n", testOut.toString());
+        menu.main(null); 
+        assertTrue(radio.getEncendido());
+
+        menu.main(new String[]{"2"});
+        assertEquals(ElMejorRadioDeLaClase.FM, radio.getBanda());
+
+        float emisoraAntes = radio.getEmisora();
+        menu.main(new String[]{"4"});
+        assertTrue(radio.getEmisora() > emisoraAntes);
+
+        emisoraAntes = radio.getEmisora();
+        menu.main(new String[]{"5"});
+        assertTrue(radio.getEmisora() < emisoraAntes);
+
+        menu.main(new String[]{"6"});
+        assertEquals(radio.getEmisora(), radio.botones[1], 0.01);
+
+        float emisoraGuardada = radio.botones[1];
+        menu.main(new String[]{"7"});
+        assertEquals(emisoraGuardada, radio.getEmisora(), 0.01);
+
+        menu.main(new String[]{"8"});
+
+        menu.main(new String[]{"9"});
+        assertFalse(radio.getEncendido());
     }
 }
