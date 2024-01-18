@@ -86,9 +86,8 @@ public class Menu {
 
             }
         }
-        else if (rad.getEncendido()){
+        if (rad.getEncendido()){
             System.out.println("Sistema de Radio Apagado...");
         }
     }
-
 }
