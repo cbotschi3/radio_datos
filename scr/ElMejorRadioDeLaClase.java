@@ -8,7 +8,7 @@ public class ElMejorRadioDeLaClase implements Radio {
     private float frecuenciaActual;
     private float ultimaFrecuenciaAM;
     private float ultimaFrecuenciaFM;
-    private float botones[];
+    float botones[];
 
     private final static float MINAM = 530f;
     private final static float MAXAM = 1610f;
