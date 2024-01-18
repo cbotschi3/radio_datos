@@ -23,18 +23,28 @@ public class Menu {
         System.out.println("9. Apagar");
         int teclado = input.nextInt();
         
-        if(rad.getEncendido()){
-
+        if(!rad.getEncendido()){
             switch (teclado) {
                 case 1:
                     System.out.println("Radio Encendida");
                     rad.encender();
+                    break;
+                    default:
+                    System.out.println("Encienda la radio primero.");
+                    break;
+            }
+        } else {
+            switch (teclado) {
+                
+                case 1:
+                    System.out.println("Radio Encendida");
                     break;
 
                 case 2:
                     System.out.println("AM (0) / FM (1)");
                     int band = input.nextInt();
                     rad.cambiarBandar(band);
+                    break;
 
                 case 3:
                     System.out.println("Volumen: ");
@@ -64,7 +74,6 @@ public class Menu {
 
                 case 8:
                     System.out.println("Estado Actual Emisora");
-                    //BestRadio.ElMejorRadioDeLaClase();
                     break;
 
                 case 9:
