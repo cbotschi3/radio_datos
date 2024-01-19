@@ -18,7 +18,7 @@ public interface Radio {
 
     public void setVolumen(int volumen);
 
-    public void cambiarBandar(int banda);
+    public void cambiarBanda(int banda);
 
     public void subirEmisora();
 

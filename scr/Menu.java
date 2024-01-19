@@ -44,7 +44,7 @@ public class Menu {
                     case 2:
                         System.out.println("AM (0) / FM (1)");
                         int band = input.nextInt();
-                        rad.cambiarBandar(band);
+                        rad.cambiarBanda(band);
                         System.out.println("Banda cambiada a " + (band == 0 ? "AM" : "FM"));
                         break;
                     case 3:
