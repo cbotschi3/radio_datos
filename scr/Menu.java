@@ -1,14 +1,13 @@
 
-
 import java.util.Scanner;
 
 public class Menu {
 
     /**
      * @param args
-     * Menu (UI) 
+     * Menu (UI)
      */
-    public void main(String[] args) {
+    public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
         Radio rad = new ElMejorRadioDeLaClase();
 
