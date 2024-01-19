@@ -42,7 +42,7 @@ public interface Radio {
     /**
      * @param banda
      */
-    public void cambiarBandar(int banda);
+    public void cambiarBanda(int banda);
 
     /**
      * 
