@@ -1,5 +1,7 @@
 
-
+/**
+ * interface Radio implementada en clase ElMejorRadioDeLaClase
+ */
 public interface Radio {
 
     public float getEmisora();

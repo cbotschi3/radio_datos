@@ -4,7 +4,11 @@ import java.util.Scanner;
 
 public class Menu {
 
-    public static void main(String[] args) {
+    /**
+     * @param args
+     * Menu (UI) 
+     */
+    public void main(String[] args) {
         Scanner input = new Scanner(System.in);
         Radio rad = new ElMejorRadioDeLaClase();
 

@@ -20,6 +20,9 @@ public class ElMejorRadioDeLaClase implements Radio {
     public final static int AM = 0;
     public final static int FM = 1;
 
+    /**
+     * 
+     */
     public ElMejorRadioDeLaClase() {
         estaEncendido = false;
         volumen = 0;
@@ -50,14 +53,14 @@ public class ElMejorRadioDeLaClase implements Radio {
     }
 
     /**
-     * 
+     * encuende el radio
      */
     public void encender() {
         estaEncendido = true;
     }
 
     /**
-     * 
+     * Apaga Radio
      */
     public void apagar() {
         estaEncendido = false;
@@ -65,6 +68,7 @@ public class ElMejorRadioDeLaClase implements Radio {
 
     /**
      * @param volumen
+     * Sube el volumen seleccionado en el parametro
      */
     public void setVolumen(int volumen) {
         this.volumen = volumen;
@@ -72,6 +76,7 @@ public class ElMejorRadioDeLaClase implements Radio {
 
     /**
      * @param banda
+     * cambia la banda por medio de un true y un false
      */
     public void cambiarBandar(int banda) {
         if (banda == AM && !modoAM) {
@@ -86,7 +91,7 @@ public class ElMejorRadioDeLaClase implements Radio {
     }
 
     /**
-     * 
+     * sube la emisora segun los requerimientos en cada una (am/fm)
      */
     public void subirEmisora() {
         if (modoAM) {
@@ -103,7 +108,7 @@ public class ElMejorRadioDeLaClase implements Radio {
     }
 
     /**
-     * 
+     * Baja emisora segun los requerimientos de cada una (am/fm)
      */
     public void bajarEmisora() {
         if (modoAM) {
@@ -122,6 +127,7 @@ public class ElMejorRadioDeLaClase implements Radio {
     /**
      * @param boton
      * @param frecuencia
+     * guarda emisora dentro de un arreglo
      */
     public void guardarEmisora(int boton, float frecuencia) {
         if (boton >= 0 && boton <= 11) {
@@ -131,6 +137,7 @@ public class ElMejorRadioDeLaClase implements Radio {
 
     /**
      * @param boton
+     * selecciona la emisora de dicho boton seleccionado por el parametro int
      */
     public void seleccionarEmisora(int boton) {
         float frecuenciaBoton = botones[boton];

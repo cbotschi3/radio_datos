@@ -5,7 +5,7 @@ import static org.junit.Assert.*;
 public class ElMejorRadioDeLaClaseTEST {
 
     /**
-     * 
+     * Test de clase ElMejorRadioDeLaClase
      */
     @Test
     public void testRadio() {
