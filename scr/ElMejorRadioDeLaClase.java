@@ -78,7 +78,7 @@ public class ElMejorRadioDeLaClase implements Radio {
      * @param banda
      * cambia la banda por medio de un true y un false
      */
-    public void cambiarBandar(int banda) {
+    public void cambiarBanda(int banda) {
         if (banda == AM && !modoAM) {
             ultimaFrecuenciaFM = frecuenciaActual;
             frecuenciaActual = ultimaFrecuenciaAM;
